@@ -25,7 +25,7 @@ const IMAGES = [
 export default function Gallery() {
   return (
     <section className="mt-16">
-      <h2 className="text-lg font-medium tracking-tight">Gallery</h2>
+      <h1 className="text-xl font-medium tracking-tight">Gallery</h1>
       <p className="mt-2 text-sm text-neutral-600">
         A few moments from AKKERT.
       </p>

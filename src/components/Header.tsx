@@ -5,15 +5,18 @@ export default function Header() {
         <div className="text-sm font-semibold tracking-wide">AKKERT</div>
 
         <nav className="flex gap-6 text-sm text-neutral-600">
-          <a href="#" className="hover:text-neutral-900">
+        <a href="#home" className="hover:text-neutral-900">
+            Home
+        </a>
+        <a href="#about" className="hover:text-neutral-900">
             About
-          </a>
-          <a href="#" className="hover:text-neutral-900">
+        </a>
+        <a href="#gallery" className="hover:text-neutral-900">
             Gallery
-          </a>
-          <a href="#" className="hover:text-neutral-900">
+        </a>
+        <a href="#contact" className="hover:text-neutral-900">
             Contact
-          </a>
+        </a>
         </nav>
       </div>
     </header>
