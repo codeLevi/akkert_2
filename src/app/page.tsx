@@ -14,7 +14,7 @@ export default function HomePage() {
         <div className="absolute bottom-6 left-6 text-white">
           <h1 className="text-2xl font-medium tracking-tight">AKKERT</h1>
           <p className="mt-1 text-sm text-white/80">
-            Green oasis in the city
+            Green oasis in the city.
           </p>
         </div>
       </div>
