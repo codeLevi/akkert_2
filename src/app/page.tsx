@@ -2,36 +2,46 @@ import Gallery from "@/components/Gallery";
 
 export default function HomePage() {
   return (
-    <section id="home" className="mx-auto max-w-6xl px-6">
-      <div className="relative overflow-hidden rounded-3xl border bg-black">
-        <img
-          src="/hero.jpg"
-          alt="AKKERT garden"
-          className="h-[60vh] w-full object-cover opacity-90"
-        />
+    <>
+      {/* HERO: almost fullscreen width */}
+      <section id="home" className="mx-auto w-[75vw] max-w-none px-0">
+        <div className="relative overflow-hidden border bg-black mb-16">
+          <img
+            src="/hero.jpg"
+            alt="AKKERT garden"
+            className="h-[50vh] w-full object-cover opacity-90"
+          />
 
-        {/* Hero text overlay */}
-        <div className="absolute bottom-6 left-6 text-white">
-          <h1 className="text-2xl font-medium tracking-tight">AKKERT</h1>
-          <p className="mt-1 text-sm text-white/80">
-            Green oasis in the city.
-          </p>
+          {/* Hero text overlay */}
+          <div className="absolute bottom-8 left-14">
+            <h1 className="text-6xl md:text-7xl lg:text-8xl font-medium tracking-tight text-white/70">
+              AKKERT
+            </h1>
+            <p className="mt-4 text-xl md:text-2xl text-white/60">
+              Green oasis in the city.
+            </p>
+
+          </div>
         </div>
-      </div>
-
-      <h1 id="about" className="text-xl font-medium tracking-tight">About</h1>
-      
-      <section className="mt-20">
-        <Gallery />
       </section>
 
-      <section id="contact" className="mt-20 max-w-3xl">
-        <h1 className="text-xl font-medium tracking-tight">Contact</h1>
-        <p className="mt-4 text-neutral-600">
-          __CONTACT_TEXT__
-        </p>
-      </section>
+      {/* CONTENT: normal width */}
+      <section className="mx-auto max-w-6xl px-6">
+        <h1 id="about" className="text-xl font-medium tracking-tight">
+          About
+        </h1>
+        <p>AKKERT is a green oasis in the heart of Cluj.</p>
+        <p>Perfect for birthdays, family celebrations, or a relaxing day in nature.</p>
 
-    </section>
+        <section className="mt-20">
+          <Gallery />
+        </section>
+
+        <section id="contact" className="mt-20 max-w-3xl">
+          <h1 className="text-xl font-medium tracking-tight">Contact</h1>
+          <p className="mt-4 text-neutral-600">__CONTACT_TEXT__</p>
+        </section>
+      </section>
+    </>
   );
 }

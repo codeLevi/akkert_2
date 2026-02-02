@@ -3,7 +3,7 @@ export default function Header() {
     <header className="fixed inset-x-0 top-0 z-50 border-b bg-white/80 backdrop-blur">
         <div className="relative flex h-16 items-center px-6">
         {/* Left: logo (true left) */}
-        <div className="w-1/3 flex items-center gap-2 text-sm font-medium">
+        <div className="w-1/3 flex items-center gap-2 text-sm">
             <span className="h-3 w-3 rounded-full bg-green-600" />
             <span>Welcome!</span>
         </div>

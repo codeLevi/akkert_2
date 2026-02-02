@@ -34,7 +34,7 @@ export default function Gallery() {
         {IMAGES.map((src) => (
           <div
             key={src}
-            className="group overflow-hidden rounded-2xl border bg-black"
+            className="group overflow-hidden border bg-black"
           >
             <img
             src={src}
