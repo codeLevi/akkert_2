@@ -1,19 +1,26 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { DM_Sans, Space_Grotesk } from "next/font/google";
+import { IBM_Plex_Mono } from "next/font/google";
 
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const dmSans = DM_Sans({
   subsets: ["latin"],
+  variable: "--font-sans",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
+  variable: "--font-display",
 });
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
+});
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,8 +33,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className={`${dmSans.variable} ${spaceGrotesk.variable}`}>
+      <body className={`${plexMono.className} antialiased`}>
         <Header />
         <main style={{ paddingTop: 96, minHeight: "100vh" }}>
           {children}

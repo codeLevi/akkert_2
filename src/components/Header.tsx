@@ -9,7 +9,7 @@ export default function Header() {
         </div>
 
         {/* Center: menu */}
-        <nav className="flex w-1/3 justify-center gap-6 text-sm text-neutral-600">
+        <nav className="flex w-1/3 justify-center gap-8 text-base text-neutral-600">
             <a href="#home" className="hover:text-neutral-900">Home</a>
             <a href="#about" className="hover:text-neutral-900">About</a>
             <a href="#gallery" className="hover:text-neutral-900">Gallery</a>

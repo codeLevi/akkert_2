@@ -2,13 +2,13 @@
 
 const IMAGES = [
   "/gallery/01.jpg",
-  "/gallery/02.jpg",
-  "/gallery/03.jpg",
+  "/gallery/02.webp",
+  "/gallery/03.webp",
   "/gallery/04.jpg",
   "/gallery/05.jpg",
   "/gallery/06.jpg",
-  "/gallery/07.jpg",
-  "/gallery/08.jpg",
+  "/gallery/07.webp",
+  "/gallery/08.webp",
   "/gallery/09.jpg",
   "/gallery/10.jpg",
   "/gallery/11.jpg",
@@ -25,7 +25,7 @@ const IMAGES = [
 export default function Gallery() {
   return (
     <section className="mt-16">
-      <h1 className="text-xl font-medium tracking-tight">Gallery</h1>
+      <h1 id="gallery" className="text-xl font-medium tracking-tight">Gallery</h1>
       <p className="mt-2 text-sm text-neutral-600">
         A few moments from AKKERT.
       </p>
@@ -41,6 +41,7 @@ export default function Gallery() {
             alt=""
             className="aspect-square w-full cursor-pointer object-cover opacity-90 transition duration-300 group-hover:scale-[1.02]"
             loading="lazy"
+            decoding="async"
             />
           </div>
         ))}

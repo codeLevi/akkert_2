@@ -19,9 +19,9 @@ export default function HomePage() {
         </div>
       </div>
 
-      <h1 className="text-xl font-medium tracking-tight">About</h1>
+      <h1 id="about" className="text-xl font-medium tracking-tight">About</h1>
       
-      <section id="gallery" className="mt-20">
+      <section className="mt-20">
         <Gallery />
       </section>
 
