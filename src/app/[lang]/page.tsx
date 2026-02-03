@@ -2,7 +2,7 @@ import Gallery from "@/components/Gallery";
 import { getMessages } from "@/i18n";
 
 type PageProps = {
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 };
 
 export default async function HomePage({ params }: PageProps) {

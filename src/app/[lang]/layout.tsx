@@ -4,7 +4,7 @@ import { getMessages, supportedLangs, type Lang } from "@/i18n";
 
 type LayoutProps = {
   children: React.ReactNode;
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 };
 
 export function generateStaticParams() {
