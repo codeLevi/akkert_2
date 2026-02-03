@@ -1,24 +1,15 @@
 export default function Footer() {
   return (
     <div className="relative mt-32">
-      <section className="relative my-24 flex justify-center mb-4">
-        <div className="flex gap-12">
+      <section className="relative my-16 flex justify-center mb-4">
+        <div className="flex gap-10">
           <a
-            href="https://maps.app.goo.gl/BtVnYwvswRmLTVsb6"
+            href="https://www.instagram.com/akkertben/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Google Maps"
+            aria-label="Instagram"
           >
-            <img src="/icons/maps.svg" alt="Maps" className="h-6 w-6 cursor-pointer opacity-70 hover:opacity-100" />
-          </a>
-
-          <a
-            href="https://wa.me/40724508266"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="WhatsApp"
-          >
-            <img src="/icons/whatsapp.svg" alt="WhatsApp" className="h-6 w-6 cursor-pointer opacity-70 hover:opacity-100" />
+            <img src="/icons/instagram.svg" alt="Instagram" className="h-5 w-5 cursor-pointer opacity-60 hover:opacity-100" />
           </a>
 
           <a
@@ -27,7 +18,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             aria-label="Airbnb"
           >
-            <img src="/icons/airbnb.svg" alt="Airbnb" className="h-6 w-6 cursor-pointer opacity-70 hover:opacity-100" />
+            <img src="/icons/airbnb.svg" alt="Airbnb" className="h-5 w-5 cursor-pointer opacity-60 hover:opacity-100" />
           </a>
 
           <a
@@ -36,23 +27,14 @@ export default function Footer() {
             rel="noopener noreferrer"
             aria-label="Facebook"
           >
-            <img src="/icons/facebook.svg" alt="Facebook" className="h-6 w-6 cursor-pointer opacity-70 hover:opacity-100" />
-          </a>
-
-          <a
-            href="https://www.instagram.com/akkertben/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-          >
-            <img src="/icons/instagram.svg" alt="Instagram" className="h-6 w-6 cursor-pointer opacity-70 hover:opacity-100" />
+            <img src="/icons/facebook.svg" alt="Facebook" className="h-5 w-5 cursor-pointer opacity-60 hover:opacity-100" />
           </a>
         </div>
       </section>
 
 
       {/* Footer line + text */}
-      <footer className="border-t px-6 py-4 text-center text-sm text-neutral-500">
+      <footer className="border-t border-neutral-200 px-6 py-4 text-center text-xs uppercase tracking-[0.2em] text-neutral-500">
         © {new Date().getFullYear()} AKKERT
       </footer>
     </div>
