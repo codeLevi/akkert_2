@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 import { DM_Sans, Space_Grotesk } from "next/font/google";
 import { IBM_Plex_Mono } from "next/font/google";
 
@@ -25,6 +23,7 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "Akkert",
   description: "Green oasis in the city.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   icons: {
     icon: "/favicon.svg",
   },
@@ -54,13 +53,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${spaceGrotesk.variable} ${plexMono.variable}`}>
+    <html lang="ro" className={`${dmSans.variable} ${spaceGrotesk.variable} ${plexMono.variable}`}>
       <body className="antialiased">
-        <Header />
-        <main style={{ paddingTop: 96, minHeight: "100vh" }}>
-          {children}
-        </main>
-        <Footer />
+        {children}
       </body>
 
     </html>

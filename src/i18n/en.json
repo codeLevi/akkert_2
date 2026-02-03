@@ -1,0 +1,29 @@
+{
+  "header": {
+    "welcome": "Welcome!"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "gallery": "Gallery",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Akkert",
+    "subtitle": "Green oasis in the city."
+  },
+  "about": {
+    "title": "About",
+    "line1": "Akkert is a green oasis in the heart of Cluj.",
+    "line2": "Perfect for birthdays, family celebrations, or a relaxing day in nature."
+  },
+  "gallery": {
+    "title": "Gallery",
+    "subtitle": "A few moments from Akkert."
+  },
+  "contact": {
+    "title": "Contact",
+    "phoneLabel": "+40 724 508 266",
+    "addressLabel": "Cluj-Napoca, str. Uliului, nr. 25"
+  }
+}

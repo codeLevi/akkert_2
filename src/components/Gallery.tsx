@@ -1,16 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 
 const IMAGES = [
   "/gallery/01.jpg",
-  "/gallery/02.webp",
-  "/gallery/03.webp",
+  "/gallery/02.jpg",
+  "/gallery/03.jpg",
   "/gallery/04.jpg",
   "/gallery/05.jpg",
   "/gallery/06.jpg",
-  "/gallery/07.webp",
-  "/gallery/08.webp",
+  "/gallery/07.jpg",
+  "/gallery/08.jpg",
   "/gallery/09.jpg",
   "/gallery/10.jpg",
   "/gallery/11.jpg",
@@ -23,8 +24,12 @@ const IMAGES = [
   "/gallery/18.jpg",
 ];
 
+type GalleryProps = {
+  title: string;
+  subtitle: string;
+};
 
-export default function Gallery() {
+export default function Gallery({ title, subtitle }: GalleryProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [touchEndX, setTouchEndX] = useState<number | null>(null);
@@ -83,9 +88,9 @@ export default function Gallery() {
 
   return (
     <section className="mt-16">
-      <h1 id="gallery" className="text-2xl font-medium tracking-tight scroll-mt-24">Gallery</h1>
+      <h1 id="gallery" className="text-2xl font-medium tracking-tight scroll-mt-24">{title}</h1>
       <p className="mt-3 text-base text-neutral-600">
-        A few moments from Akkert.
+        {subtitle}
       </p>
 
       <div className="mt-8">
@@ -94,21 +99,22 @@ export default function Gallery() {
             <button
               key={src}
               type="button"
-              className="group relative overflow-hidden border border-neutral-200 bg-white reveal"
+              className="group relative overflow-hidden border border-neutral-200 bg-white"
               onClick={() => openAt(index)}
               aria-label="Open image"
-              style={{ animationDelay: `${index * 40}ms` }}
             >
-              <img
+              <Image
                 src={src}
                 alt=""
-                className="aspect-[16/9] w-full object-cover brightness-[0.9] contrast-[1.02] saturate-[0.95] transition duration-700 group-hover:scale-[1.03] group-hover:brightness-[0.98]"
-                loading="lazy"
-                decoding="async"
+                width={640}
+                height={360}
+                sizes="(min-width: 1024px) 16.6vw, (min-width: 640px) 33vw, 50vw"
+                priority={index < 6}
+                className="aspect-[16/9] w-full object-cover brightness-[0.9] contrast-[1.02] saturate-[0.95]"
               />
               <span className="film-grain" />
               <span className="pointer-events-none absolute inset-0 bg-black/5" />
-              <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
+              <span className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0" />
             </button>
           ))}
         </div>

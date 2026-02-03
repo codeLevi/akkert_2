@@ -1,0 +1,29 @@
+{
+  "header": {
+    "welcome": "Isten hozott!"
+  },
+  "nav": {
+    "home": "Kezdőlap",
+    "about": "Rólunk",
+    "gallery": "Galéria",
+    "contact": "Kapcsolat"
+  },
+  "hero": {
+    "title": "Akkert",
+    "subtitle": "Zöld oázis a városban."
+  },
+  "about": {
+    "title": "Rólunk",
+    "line1": "Akkert egy zöld menedék Kolozsvár szívében.",
+    "line2": "Tökéletes választás születésnapokra, családi ünnepekre vagy egy pihentető napra a természetben."
+  },
+  "gallery": {
+    "title": "Galéria",
+    "subtitle": "Néhány pillanat Akkert-ből."
+  },
+  "contact": {
+    "title": "Kapcsolat",
+    "phoneLabel": "+40 724 508 266",
+    "addressLabel": "Kolozsvár, Kányafő út 25 (Uliului)"
+  }
+}

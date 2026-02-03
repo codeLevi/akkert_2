@@ -1,3 +1,5 @@
+"use client";
+
 export default function Footer() {
   return (
     <div className="relative mt-32">
@@ -9,7 +11,11 @@ export default function Footer() {
             rel="noopener noreferrer"
             aria-label="Instagram"
           >
-            <img src="/icons/instagram.svg" alt="Instagram" className="h-5 w-5 cursor-pointer opacity-60 hover:opacity-100" />
+            <img
+              src="/icons/instagram.svg"
+              alt="Instagram"
+              className="h-5 w-5 cursor-pointer opacity-60 hover:opacity-100"
+            />
           </a>
 
           <a
@@ -18,7 +24,11 @@ export default function Footer() {
             rel="noopener noreferrer"
             aria-label="Airbnb"
           >
-            <img src="/icons/airbnb.svg" alt="Airbnb" className="h-5 w-5 cursor-pointer opacity-60 hover:opacity-100" />
+            <img
+              src="/icons/airbnb.svg"
+              alt="Airbnb"
+              className="h-5 w-5 cursor-pointer opacity-60 hover:opacity-100"
+            />
           </a>
 
           <a
@@ -27,11 +37,14 @@ export default function Footer() {
             rel="noopener noreferrer"
             aria-label="Facebook"
           >
-            <img src="/icons/facebook.svg" alt="Facebook" className="h-5 w-5 cursor-pointer opacity-60 hover:opacity-100" />
+            <img
+              src="/icons/facebook.svg"
+              alt="Facebook"
+              className="h-5 w-5 cursor-pointer opacity-60 hover:opacity-100"
+            />
           </a>
         </div>
       </section>
-
 
       {/* Footer line + text */}
       <footer className="border-t border-neutral-200 px-6 py-4 text-center text-xs uppercase tracking-[0.2em] text-neutral-500">
