@@ -1,5 +1,6 @@
 import Gallery from "@/components/Gallery";
 import { getMessages } from "@/i18n";
+import Reveal from "./reveal";
 
 type PageProps = {
   params: Promise<{ lang: string }>;
@@ -21,33 +22,40 @@ export default async function HomePage({ params }: PageProps) {
           />
 
           {/* Hero text overlay */}
-          <div className="absolute bottom-8 left-8">
+          <Reveal className="absolute bottom-8 left-8">
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-medium tracking-tight text-white/90">
               {messages.hero.title}
             </h1>
             <p className="mt-3 text-lg md:text-xl text-white/70">
               {messages.hero.subtitle}
             </p>
-
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* CONTENT: normal width */}
       <section className="mx-auto max-w-screen-2xl px-6">
-        <section id="about" className="scroll-mt-24">
+        <Reveal>
+          <section id="about" className="scroll-mt-24">
           <h1 className="text-xl font-medium tracking-tight">{messages.about.title}</h1>
           <p className="mt-3 text-base leading-7 text-neutral-600">{messages.about.line1}</p>
           <p className="mt-2 text-base leading-7 text-neutral-600">{messages.about.line2}</p>
-        </section>
+          </section>
+        </Reveal>
 
-        <section className="mt-20">
-          <Gallery title={messages.gallery.title} subtitle={messages.gallery.subtitle} />
-        </section>
 
-        <section id="contact" className="mt-20 max-w-3xl scroll-mt-24">
+        <Reveal className="mt-20">
+          <section>
+            <Gallery title={messages.gallery.title} subtitle={messages.gallery.subtitle} />
+          </section>
+        </Reveal>
+        
+
+        <Reveal className="mt-20 max-w-3xl">
+          <section id="contact" className="scroll-mt-24">
           <h1 className="text-xl font-medium tracking-tight">{messages.contact.title}</h1>
           <div className="mt-3 flex flex-col gap-3 text-base text-neutral-700">
+            <p className="text-neutral-600">{messages.contact.phoneIntro}</p>
             <a
               href="https://wa.me/40724508266"
               target="_blank"
@@ -67,7 +75,8 @@ export default async function HomePage({ params }: PageProps) {
               <span>{messages.contact.addressLabel}</span>
             </a>
           </div>
-        </section>
+          </section>
+        </Reveal>
       </section>
     </>
   );

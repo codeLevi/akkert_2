@@ -23,6 +23,7 @@
   },
   "contact": {
     "title": "Contact",
+    "phoneIntro": "Book now:",
     "phoneLabel": "+40 724 508 266",
     "addressLabel": "Cluj-Napoca, str. Uliului, nr. 25"
   }

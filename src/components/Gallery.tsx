@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 const IMAGES = [
   "/gallery/01.jpg",
@@ -31,10 +32,13 @@ type GalleryProps = {
 
 export default function Gallery({ title, subtitle }: GalleryProps) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [direction, setDirection] = useState<"next" | "prev">("next");
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [touchEndX, setTouchEndX] = useState<number | null>(null);
+  const [loaded, setLoaded] = useState<Set<number>>(new Set());
 
   const openAt = useCallback((index: number) => {
+    setDirection("next");
     setActiveIndex(index);
   }, []);
 
@@ -43,6 +47,7 @@ export default function Gallery({ title, subtitle }: GalleryProps) {
   }, []);
 
   const prev = useCallback(() => {
+    setDirection("prev");
     setActiveIndex((current) => {
       if (current === null) return current;
       return (current - 1 + IMAGES.length) % IMAGES.length;
@@ -50,6 +55,7 @@ export default function Gallery({ title, subtitle }: GalleryProps) {
   }, []);
 
   const next = useCallback(() => {
+    setDirection("next");
     setActiveIndex((current) => {
       if (current === null) return current;
       return (current + 1) % IMAGES.length;
@@ -86,6 +92,15 @@ export default function Gallery({ title, subtitle }: GalleryProps) {
     setTouchEndX(null);
   };
 
+  const markLoaded = (index: number) => {
+    setLoaded((current) => {
+      if (current.has(index)) return current;
+      const nextSet = new Set(current);
+      nextSet.add(index);
+      return nextSet;
+    });
+  };
+
   return (
     <section className="mt-16">
       <h1 id="gallery" className="text-2xl font-medium tracking-tight scroll-mt-24">{title}</h1>
@@ -110,7 +125,10 @@ export default function Gallery({ title, subtitle }: GalleryProps) {
                 height={360}
                 sizes="(min-width: 1024px) 16.6vw, (min-width: 640px) 33vw, 50vw"
                 priority={index < 6}
-                className="aspect-[16/9] w-full object-cover brightness-[0.9] contrast-[1.02] saturate-[0.95]"
+                className={`aspect-[16/9] w-full object-cover brightness-[0.9] contrast-[1.02] saturate-[0.95] ${
+                  loaded.has(index) ? "fade-in" : ""
+                }`}
+                onLoad={() => markLoaded(index)}
               />
               <span className="film-grain" />
               <span className="pointer-events-none absolute inset-0 bg-black/5" />
@@ -120,47 +138,51 @@ export default function Gallery({ title, subtitle }: GalleryProps) {
         </div>
       </div>
 
-      {activeIndex !== null && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-6"
-          onClick={close}
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
-          aria-modal="true"
-          role="dialog"
-        >
+      {activeIndex !== null &&
+        typeof document !== "undefined" &&
+        createPortal(
           <div
-            className="relative max-h-[90vh] max-w-[90vw]"
-            onClick={(event) => event.stopPropagation()}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-6"
+            onClick={close}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+            aria-modal="true"
+            role="dialog"
           >
-            <img
-              src={IMAGES[activeIndex]}
-              alt=""
-              className="max-h-[90vh] max-w-[90vw] cursor-pointer object-contain"
-              onClick={next}
-            />
-
-            <button
-              type="button"
-              onClick={prev}
-              className="fixed left-6 top-1/2 z-10 -translate-y-1/2 border border-neutral-200 bg-white/95 px-3 py-2 text-black"
-              aria-label="Previous image"
+            <div
+              className="relative max-h-[90vh] max-w-[90vw]"
+              onClick={(event) => event.stopPropagation()}
             >
-              {"<"}
-            </button>
+              <img
+                key={activeIndex}
+                src={IMAGES[activeIndex]}
+                alt=""
+                className={`max-h-[90vh] max-w-[90vw] cursor-pointer object-contain lightbox-swipe-${direction}`}
+                onClick={next}
+              />
 
-            <button
-              type="button"
-              onClick={next}
-              className="fixed right-6 top-1/2 z-10 -translate-y-1/2 border border-neutral-200 bg-white/95 px-3 py-2 text-black"
-              aria-label="Next image"
-            >
-              {">"}
-            </button>
-          </div>
-        </div>
-      )}
+              <button
+                type="button"
+                onClick={prev}
+                className="fixed left-6 top-1/2 z-10 -translate-y-1/2 border border-neutral-200 bg-white/95 px-3 py-2 text-black"
+                aria-label="Previous image"
+              >
+                {"<"}
+              </button>
+
+              <button
+                type="button"
+                onClick={next}
+                className="fixed right-6 top-1/2 z-10 -translate-y-1/2 border border-neutral-200 bg-white/95 px-3 py-2 text-black"
+                aria-label="Next image"
+              >
+                {">"}
+              </button>
+            </div>
+          </div>,
+          document.body
+        )}
     </section>
   );
 }
