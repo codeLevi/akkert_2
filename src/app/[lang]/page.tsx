@@ -9,9 +9,25 @@ type PageProps = {
 export default async function HomePage({ params }: PageProps) {
   const resolvedParams = await params;
   const messages = getMessages(resolvedParams.lang);
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.akkert.ro";
+  const pageUrl = `${siteUrl}/${resolvedParams.lang}`;
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "EventVenue",
+    name: "Akkert",
+    url: pageUrl,
+    image: `${siteUrl}/og.jpg`,
+    description:
+      "Akkert este spatiul ideal pentru evenimente de familie, zile de nastere si petreceri in aer liber. Inchiriere spatiu evenimente, cabana si gradina.",
+    telephone: "+40 724 508 266",
+  };
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       {/* HERO: minimal editorial */}
       <section id="home" className="mx-auto max-w-screen-2xl px-6 scroll-mt-24">
         <div className="relative overflow-hidden bg-neutral-100 mb-16">
