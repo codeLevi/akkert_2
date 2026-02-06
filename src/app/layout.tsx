@@ -21,15 +21,17 @@ const plexMono = IBM_Plex_Mono({
 
 
 export const metadata: Metadata = {
-  title: "Akkert",
-  description: "Green oasis in the city.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  title: "Akkert — inchiriere spatiu evenimente, cabana si gradina",
+  description:
+    "Akkert este spatiul ideal pentru evenimente de familie, zile de nastere si petreceri in aer liber. Inchiriere spatiu evenimente, cabana si gradina.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.akkert.ro"),
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "AKKERT",
-    description: "Green oasis in the city.",
+    title: "Akkert — inchiriere spatiu evenimente, cabana si gradina",
+    description:
+      "Akkert este spatiul ideal pentru evenimente de familie, zile de nastere si petreceri in aer liber. Inchiriere spatiu evenimente, cabana si gradina.",
     images: [
       {
         url: "/og.jpg",
@@ -41,8 +43,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AKKERT",
-    description: "Green oasis in the city.",
+    title: "Akkert — inchiriere spatiu evenimente, cabana si gradina",
+    description:
+      "Akkert este spatiul ideal pentru evenimente de familie, zile de nastere si petreceri in aer liber. Inchiriere spatiu evenimente, cabana si gradina.",
     images: ["/og.jpg"],
   },
 };
