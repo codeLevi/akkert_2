@@ -21,15 +21,15 @@ const plexMono = IBM_Plex_Mono({
 
 
 export const metadata: Metadata = {
-  title: "Akkert",
-  description: "Oază verde in oraș",
+  title: "Akkert - Oază verde in oraș",
+  description: "Experiență naturală, momente private, chiar în Cluj.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.akkert.ro"),
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
-    title: "Akkert",
-    description: "Oază verde in oraș",
+    title: "Akkert - Oază verde in oraș",
+    description: "Experiență naturală, momente private, chiar în Cluj.",
     images: [
       {
         url: "/og.jpg",
@@ -41,8 +41,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Akkert",
-    description: "Oază verde in oraș",
+    title: "Akkert - Oază verde in oraș",
+    description: "Experiență naturală, momente private, chiar în Cluj.",
     images: ["/og.jpg"],
   },
 };
